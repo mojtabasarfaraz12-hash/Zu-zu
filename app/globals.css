@@ -1,26 +1,67 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-forest: #1B4D2E;
+  --color-forest-deep: #0F2E1A;
+  --color-forest-mid: #2E7D47;
+  --color-sage: #E4EDE4;
+  --color-sage-dark: #C5D9BB;
+  --color-gold: #C8962E;
+  --color-gold-light: #F0D89A;
+  --color-cream: #F7F3ED;
+  --color-warm-white: #FAFAF8;
+  --color-stone: #6B7063;
+  --color-ink: #1A1A18;
+  --font-display: var(--font-yoga);
+  --font-body: var(--font-euclid);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-euclid), system-ui, sans-serif;
+  color: #1A1A18;
+  background: #FAFAF8;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Display font utility */
+.font-display {
+  font-family: var(--font-yoga), system-ui, sans-serif;
+}
+
+/* Smooth fade-in */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.7s ease forwards;
+}
+
+.animate-fade-in {
+  animation: fade-in 1s ease forwards;
+}
+
+/* Section divider */
+.section-divider {
+  width: 48px;
+  height: 2px;
+  background: #C8962E;
+  display: block;
 }
